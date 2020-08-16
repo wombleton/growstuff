@@ -5,7 +5,9 @@ require "English"
 
 puts "Checking to see if you're in CONTRIBUTORS.md..."
 
-if ENV['TRAVIS']
+if ENV['CI']
+  puts $GITHUB_EVENT_NAME
+
   if ENV['TRAVIS_PULL_REQUEST']
     require 'httparty'
     repo = ENV['TRAVIS_REPO_SLUG']
